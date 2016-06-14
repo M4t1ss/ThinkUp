@@ -133,6 +133,7 @@ class Utils {
         $c = curl_init();
         curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($c, CURLOPT_URL, $URL);
+		curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
         $contents = curl_exec($c);
         $status = curl_getinfo($c, CURLINFO_HTTP_CODE);
         curl_close($c);
@@ -169,6 +170,7 @@ class Utils {
         curl_setopt($ch,CURLOPT_POST,count($fields));
         curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         //execute post
         $contents = curl_exec($ch);
